@@ -29,7 +29,6 @@ public class TowerStage : MonoBehaviour
         }
         valueText.text = value.ToString();
 
-        print(_content);
         content.sprite = _content;
         content.GetComponent<RectTransform>().sizeDelta = _content == null ?  Vector2.zero : new Vector2(100, 100);
         typeText.text = _content == null ? type : "";

@@ -67,6 +67,8 @@ public class Level : MonoBehaviour
             }
             towers.Add(newTower);
         }*/
+        
+        //TEST VALUES
         var newTower = new Tower();
         newTower.stages.Add(new TowerPlayer("player", 3));
         newTower.stages.Add(new TowerHealth("health", 2));
