@@ -29,7 +29,20 @@ public class Level : MonoBehaviour
 
     private void ParseDataFromJSON()
     {
-        jsonString = File.ReadAllText(Application.dataPath + "/Resources/levelData.json");
+        /*string filePath = Application.streamingAssetsPath + "/levelData.json";
+        string jsonString;
+             
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            WWW reader = new WWW(filePath);
+            while (!reader.isDone) { }
+     
+            jsonString = reader.text;
+        }
+        else
+        {
+            jsonString = File.ReadAllText(filePath);
+        }
         itemData = JsonMapper.ToObject(jsonString);
         
         
@@ -53,7 +66,21 @@ public class Level : MonoBehaviour
                 //print(itemData["Tower"][0][i][j]["value"]);
             }
             towers.Add(newTower);
-        }
+        }*/
+        var newTower = new Tower();
+        newTower.stages.Add(new TowerPlayer("player", 3));
+        newTower.stages.Add(new TowerHealth("health", 2));
+        towers.Add(newTower);
+        newTower = new Tower();
+        newTower.stages.Add(new TowerEnemy("enemy", 5));
+        newTower.stages.Add(new TowerEnemy("enemy", 9));
+        newTower.stages.Add(new TowerEnemy("enemy", 18));
+        towers.Add(newTower);
+        newTower = new Tower();
+        newTower.stages.Add(new TowerEnemy("enemy", 23));
+        newTower.stages.Add(new TowerEnemy("enemy", 40));
+        newTower.stages.Add(new TowerEnemy("enemy", 84));
+        towers.Add(newTower);
     }
 
     public void EmptyStage(int stageId)

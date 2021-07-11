@@ -1,0 +1,44 @@
+﻿{
+        "Tower": [
+                {
+                        "playerTower": [
+                                {
+                                        "type": "player",
+                                        "value": 3
+                                },
+                                {
+                                        "type": "health",
+                                        "value": 2
+                                }
+                        ],
+                        "enemyTower1": [
+                                {
+                                        "type": "enemy",
+                                        "value": 5
+                                },
+                                {
+                                        "type": "enemy",
+                                        "value": 6
+                                },
+                                {
+                                        "type": "enemy",
+                                        "value": 7
+                                },
+                                {
+                                        "type": "enemy",
+                                        "value": 20
+                                }
+                        ],
+                        "enemyTower2": [
+                                {
+                                        "type": "enemy",
+                                        "value": 8
+                                },
+                                {
+                                        "type": "enemy",
+                                        "value": 9
+                                }
+                        ]
+                }
+        ]
+}

@@ -44,4 +44,9 @@ public class Player : MonoBehaviour
     {
         drag.isPlayerDragged = true;
     }
+    
+    public void StopDrag()
+    {
+        drag.isPlayerDragged = false;
+    }
 }

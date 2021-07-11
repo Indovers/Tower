@@ -8,6 +8,7 @@ public class TowerGenerator : MonoBehaviour
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private GameObject towerPrefab;
     [SerializeField] private GameObject stagePrefab;
+    [SerializeField] private Sprite[] contentSprites;
     [SerializeField] private Transform towersHolder;
 
     private Drag drag;
@@ -27,16 +28,29 @@ public class TowerGenerator : MonoBehaviour
             for(int j = 0; j < towers[i].stages.Count; j++)
             {
                 var stage = Instantiate(stagePrefab, towerObject.transform).GetComponent<TowerStage>();
-                stage.Initialize(towers[i].stages[j].StageValue, towers[i].stages[j].Type);
+                stage.Initialize(towers[i].stages[j].StageValue, towers[i].stages[j].Type, GetContentSprite(towers[i].stages[j].Type));
                 level.towers[i].stages[j].StageTransform = stage.transform;
                 
-                if (i == 0 && j == 0)
+                if (towers[i].stages[j].Type == "player")
                 {
-                    var player = Instantiate(playerPrefab, towersHolder.GetChild(0).GetChild(0).transform);
+                    var player = Instantiate(playerPrefab, level.towers[i].stages[j].StageTransform);
                     player.GetComponent<Player>().Initialize(towers[i].stages[j].StageValue);
                     drag.player = player.GetComponent<Player>();
                 }
             }
+        }
+    }
+
+    private Sprite GetContentSprite(string type)
+    {
+        switch (type)
+        {
+            case "enemy":
+                return contentSprites[0];
+            case "health":
+                return contentSprites[1];
+            default:
+                return null;
         }
     }
 
